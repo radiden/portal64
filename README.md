@@ -28,8 +28,6 @@ pip install vpk
 5. Build and install [vtf2png](https://github.com/eXeC64/vtf2png)
 
 ```sh
-# Install dependencies
-
 # Ubuntu/Debian
 sudo apt install libpng-dev
 
@@ -52,7 +50,6 @@ make
 
 ```sh
 # Ubuntu/Debian
-
 sudo apt install libtiff-dev libassimp-dev
 
 # Arch
