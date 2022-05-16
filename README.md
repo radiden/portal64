@@ -2,24 +2,88 @@
 
 A demake of portal for the Nintendo 64
 
-## How to build
+# Building
 
-First, you will need to setup [modern sdk](https://crashoveride95.github.io/n64hbrew/modernsdk/startoff.html)
+## Docker
 
-Next, you will need to download blender 2.9 or higher. Then set the environment variable `BLENDER_2_9` to be the absolute path where the blender executable is located on your computer.
+does not work yet
 
-You will need to install python vpk
+## Manual
 
+1. Setup [Modern SDK](https://crashoveride95.github.io/n64hbrew/modernsdk/startoff.html)
+2. Install [Blender](https://www.blender.org/)
+3. Set the `BLENDER_2_9` environment variable to the absolute path of the blender executable
+
+```sh
+# On Debian/Ubuntu (and most other distros)
+export BLENDER_2_9=/usr/bin/blender
 ```
+
+4. Install the python vpk library using pip
+
+```sh
 pip install vpk
 ```
 
-Build and install [vtf2png](https://github.com/eXeC64/vtf2png)
+5. Build and install [vtf2png](https://github.com/eXeC64/vtf2png)
 
-Install image magic
+```sh
+# Install dependencies
 
+# Ubuntu/Debian
+sudo apt install libpng-dev
+
+# Arch
+sudo pacman -S libpng
+
+# Void
+sudo xbps-install -S libpng-devel
+
+# Fedora
+sudo dnf install libpng-devel
+
+# Next steps (Distro independent)
+git clone https://github.com/eXeC64/vtf2png tools/vtf2png
+cd tools/vtf2png
+make
 ```
-sudo apt install imagemagic
+
+6. Build and install [skeletool64](https://github.com/lambertjamesd/skelatool64)
+
+```sh
+# Ubuntu/Debian
+
+sudo apt install libtiff-dev libassimp-dev
+
+# Arch
+sudo pacman -S libtiff assimp
+
+# Void
+sudo xbps-install -S tiff-devel libassimp-devel
+
+# Fedora
+sudo dnf install libtiff-devel assimp-devel
+
+# Next steps (Distro independent)
+git clone https://github.com/lambertjamesd/skelatool64 tools/skeletool64
+cd tools/skeletool64
+make
 ```
 
-Finally run `make` to build the project
+7. Install imagemagick:
+
+```sh
+# Ubuntu/Debian
+sudo apt install imagemagick
+
+# Arch
+sudo pacman -S imagemagick
+
+# Void
+sudo xbps-install -S ImageMagick
+
+# Fedora
+sudo dnf install ImageMagick
+```
+
+8. Run `make` to build the project
